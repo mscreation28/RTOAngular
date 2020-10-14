@@ -1,0 +1,64 @@
+.wrapper{
+    margin: 0;
+    padding: 0;
+    font-family: Arial, Helvetica, sans-serif;
+    letter-spacing: 0.75px;
+    background-color: #2c7873;
+    height: 100%;
+    overflow: scroll;
+    overflow-x: hidden;
+}
+.container{
+    height: 100%;
+    min-width: 70%;
+    position: relative;
+    margin: 0px auto;
+}
+.btn-fill{
+    background-color: #ffba5a;
+}
+.btn-fill:hover{
+    background-color: rgba(255, 255, 255, 0.9); 
+    color: rgba(0, 70, 0, 1);
+}
+.que-head h1{
+    margin-top: 25px;
+    font-size: 24px;
+}
+.que h3{
+    font-size: 24px;
+    font-weight: lighter;
+    padding-top: 20px;
+}
+.que img{
+    margin-left: 20px;
+}
+footer{
+    margin-top: 20px;
+    position: relative;
+    padding-top: 15px;
+    bottom: 0;
+    background-color: rgb(0, 0, 0, 0.7);
+}
+.time-icon p{
+    /* padding-top: 13px; */
+    margin-top: -64px;
+    margin-left: 15px;
+    width: 75px;
+    height: 75px;
+}
+@media (max-width: 770px){    
+    .container{
+        min-width: 90%;
+        padding: 0px;
+        /* margin: 20px 0; */
+    }
+    .wrapper{
+        background-color: #2c7873;    
+    }
+}
+@media (max-width: 576px){
+    .que-head h1{
+        margin-top: 0px;
+    }    
+}

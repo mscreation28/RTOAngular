@@ -1,0 +1,128 @@
+.wrapper{
+    margin: 0;
+    padding: 0;
+    font-family: Arial, Helvetica, sans-serif;
+    letter-spacing: 0.75px;
+    background-color: #c0ffb3;
+    height: 100%;
+    overflow: scroll;
+    overflow-x: hidden;
+}
+a{
+    text-decoration: none;
+}
+.header{
+    background-color: rgba(255, 255, 255, 0.9);
+}
+.header .btn-fill{
+    background-color: #52de97;
+    color: rgba(0, 70, 0, 1);
+}
+.header .btn-fill:hover{
+    background-color: rgba(255, 255, 255, 0.9);
+    border: 2px solid rgba(0, 70, 0, 1);
+    color: rgba(0, 70, 0, 1);
+}
+.container{
+    height: 100%;
+    min-width: 70%;
+    position: relative;
+    margin: 0px auto;
+}
+.sign{
+    height: 220px;
+    width: 180px;
+    display: inline-table;
+    background: rgba(255, 255, 255, 0.9);
+    border-radius: 15px;
+    padding: 0;
+    /* box-shadow: 1px 1px 3px #52de97; */
+    /* padding: 30px; */
+    margin: 12px;
+}
+.sign-top{
+    padding: 30px;
+    height: 160px;
+    /* background-color: khaki; */
+}
+.sign-bottom{
+    height: 60px;
+    background-color: #52de97;
+    border-radius: 0px 0 15px 15px;
+    padding: 10px;
+    padding-top: 5px;
+}
+.sign-bottom p{
+    text-align: center;
+}
+.sign img{
+    height: 100px;
+    width: 100px;
+    margin-left: 10px;
+}
+.footer{
+    position: relative;
+    padding-top: 15px;
+    max-width: 30%;
+    background-color: rgb(0, 0, 0, 0.7);
+}
+@media (max-width: 992px){
+    .footer{
+        min-width: 70%;
+        min-height: 50px;
+    }
+}
+@media (max-width: 770px){    
+    .container{
+        min-width: 90%;
+        /* padding: 0px; */
+    }
+    .sign{
+        height: 200px;
+        width: 170px;
+    }
+    .sign-top{
+        width: 170px;
+        height: 145px;
+    }
+    .sign-bottom{
+        height: 55px;
+    }    
+    .wrapper{
+        background-color: #c0ffb3;    
+    }
+    .footer{
+        min-width: 100%;
+    }
+}
+@media (max-width: 682px){
+    .sign{
+        height: 200px;
+        width: 150px;        
+    }
+    .sign-top{
+        height: 145px;
+        width: 150px;
+        padding: 20px;
+    }
+    .sign-bottom{
+        height: 55px;
+    }
+    /* .sign-bottom p{
+        font-size: 15px;
+    } */
+}
+@media (max-width: 370px){
+    .sign{
+        height: 190px;
+        width: 130px;        
+    }
+    .sign-top{
+        height: 140px;
+        width: 130px;
+        padding: 15px 10px;
+    }
+    .sign-bottom{
+        height: 50px;
+    }
+}

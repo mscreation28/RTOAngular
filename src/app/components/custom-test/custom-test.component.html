@@ -1,0 +1,94 @@
+<div class="wrapper">
+    <header class="header navbar navbar-expand-md row">
+        <h2 class="col col-sm-7">RTO Exam Preparation</h2>
+        <div class="row col col-sm-5">
+            <div class="login-btn col col-sm-6">
+                <a href="index.html"><button class="btn-fill"><p>HOME</p></button></a>
+            </div>            
+            <div class="login-btn col col-sm-6">
+                <a href="login.html"><button class="btn-fill"><p>LOGIN</p></button></a>
+            </div>
+        </div>        
+    </header>
+    <section class="container">
+    <!-- <div class="wrapper"> -->
+        <div class="instruction">
+            <h3>Instruction:</h3>
+            <p>You have selected 3 Question.</p>
+            <p>You have 45sec. For each Question.</p>
+        </div>
+        <div class="question">
+            <div class="que-main-head row">
+                <div class="time-icon  col col-sm-2 col-xl-2 col-12">
+                    <div *ngFor="let i of dummy">
+                        <circle-progress
+                            [percent]="tsec1"
+                            [title]="ptime"
+                        ></circle-progress>
+                    </div>
+                </div>                 
+               
+                <div class="que-head col col-sm-10 col-xl-10 col-12">
+                    <h1>Total Question 3:</h1>
+                </div>
+            </div>
+            <div class="option-area">
+            <form action="submitted.html">
+                <div class="que">
+                    <h3>Q. While driving at nights on city roads, keep your head-lights on a </h3>
+                    <div class="option">
+                        <INPUT TYPE="RADIO" VALUE="A" NAME="aa">
+                        <p>Low Beam</p>
+                    </div>
+                    <div class="option">
+                        <INPUT TYPE="RADIO" VALUE="B" NAME="aa"> 
+                        <p>High Beam</p>
+                    </div>
+                    <div class="option">
+                        <INPUT TYPE="RADIO" VALUE="C" NAME="aa"> 
+                        <p>Switch of all lighs</p>
+                    </div>
+                </div> 
+                
+                <div class="que">
+                    <h3>Q. What does following sign represent? </h3><br>
+                    <img src=".\images\queimg\bullcardprohibited.jpg">
+                    <div class="option">
+                        <INPUT TYPE="RADIO" VALUE="A" NAME="cc" > 
+                        <p>Bullock cart prohibited.</p>
+                    </div>
+                    <div class="option">
+                        <INPUT TYPE="RADIO" VALUE="B" NAME="cc" >
+                        <p>Cycle prohibited.</p>
+                    </div>
+                    <div class="option">
+                        <INPUT TYPE="RADIO" VALUE="C" NAME="cc" > 
+                        <p>All vehicles prohibited.</p>
+                    </div>
+                </div>
+                
+                <div class="que">
+                    <h3>Q. Red Traffic Light Indicates</h3>                
+                    <div class="option">
+                        <INPUT TYPE="RADIO" VALUE="A" NAME="bb" > 
+                        <p>Vehicles can proceed with cautions</p>
+                    </div>
+                    <div class="option">
+                        <INPUT TYPE="RADIO" VALUE="B" NAME="bb" >
+                        <p>Stop the vehicles</p>
+                    </div>
+                    <div class="option">
+                        <INPUT TYPE="RADIO" VALUE="C" NAME="bb" > 
+                        <p>Slow down</p>
+                    </div>
+                </div>
+                <input type="submit" value="SUBMIT" id="submitbtn" class="btn-fill"/>
+            </form>
+        </div>
+        </div>
+    <!-- </div> -->
+</section>
+<footer class="footer">
+    <h5>coyright &copy 2020,MS-creation</h5>
+</footer>
+</div>
