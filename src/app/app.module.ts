@@ -1,5 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { HttpClientModule } from '@angular/common/http';
 
 import { NgCircleProgressModule } from 'ng-circle-progress'
 import { AppRoutingModule } from './app-routing.module';
@@ -9,6 +10,9 @@ import { HomeComponent } from './components/home/home.component';
 import { RoadSignComponent } from './components/road-sign/road-sign.component';
 import { RegularTestComponent } from './components/regular-test/regular-test.component';
 import { CustomTestComponent } from './components/custom-test/custom-test.component';
+import { ResultComponent } from './components/result/result.component';
+import { NgxPaginationModule } from 'ngx-pagination';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -17,7 +21,8 @@ import { CustomTestComponent } from './components/custom-test/custom-test.compon
     HomeComponent,
     RoadSignComponent,
     RegularTestComponent,
-    CustomTestComponent
+    CustomTestComponent,
+    ResultComponent
   ],
   imports: [
     BrowserModule,
@@ -33,7 +38,10 @@ import { CustomTestComponent } from './components/custom-test/custom-test.compon
       "showSubtitle": false,
       "showUnits": false,
       "showInnerStroke": false
-    })  
+    }),
+    HttpClientModule,
+    NgxPaginationModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

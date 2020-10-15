@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { DataserviceService } from 'src/app/dataservice.service';
 
 @Component({
   selector: 'app-road-sign',
@@ -7,9 +8,18 @@ import { Component, OnInit } from '@angular/core';
 })
 export class RoadSignComponent implements OnInit {
 
-  constructor() { }
+  jsondata:any=[];
+  constructor(private service: DataserviceService) {
+    this.service.getRoadSign().subscribe(res => {
+			this.jsondata=res;
+			console.log(res);
+		})
+   }
 
   ngOnInit(): void {
   }
 
+  changetoguj():void {
+		
+	}
 }

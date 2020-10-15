@@ -11,55 +11,62 @@
         </div>        
     </header>
     <section class="container row">
-        <div class="sign">
-            <div class="sign-top"><img src=".\images\sign\aheadonly.png"></div>
+        <!-- <div class="sign">
+            <div class="sign-top"><img src="../../../assets/RoadSign/aheadonly.png"></div>
             <div class="sign-bottom"><p>Compulsory ahed only</p></div>
         </div>
         <div class="sign">
-            <div class="sign-top"><img src=".\images\sign\animal.png"></div>
+            <div class="sign-top"><img src="../../../assets/RoadSign/animal.png"></div>
             <div class="sign-bottom"><p>Possibility of animal on the road</p></div>
         </div>
         <div class="sign">
-            <div class="sign-top"><img src=".\images\sign\barrierahead.png"></div>
+            <div class="sign-top"><img src="../../../assets/RoadSign/barrierahead.png"></div>
             <div class="sign-bottom"><p>Barrier Ahed</p></div>
         </div>
         <div class="sign">
-            <div class="sign-top"><img src=".\images\sign\bothno.png"></div>
+            <div class="sign-top"><img src="../../../assets/RoadSign/bothno.png"></div>
             <div class="sign-bottom"><p>Prohibited in both direcion</p></div>
         </div>
         <div class="sign">
-            <div class="sign-top"><img src=".\images\sign\compulsorysoundhorn.png"></div>
+            <div class="sign-top"><img src="../../../assets/RoadSign/compulsorysoundhorn.png"></div>
             <div class="sign-bottom"><p>Sound horn compulsory</p></div>
         </div>
                 
         <div class="sign">
-            <div class="sign-top"><img src=".\images\sign\crossroad.png"></div>
+            <div class="sign-top"><img src="../../../assets/RoadSign/crossroad.png"></div>
             <div class="sign-bottom"><p>Cross road ahead</p></div>
         </div>
         <div class="sign">
-            <div class="sign-top"><img src=".\images\sign\cyclecrossing.png"></div>
+            <div class="sign-top"><img src="../../../assets/RoadSign/cyclecrossing.png"></div>
             <div class="sign-bottom"><p>Cycle crossing</p></div>
         </div>
         <div class="sign">
-            <div class="sign-top"><img src=".\images\sign\fallingrock.png"></div>
+            <div class="sign-top"><img src="../../../assets/RoadSign/fallingrock.png"></div>
             <div class="sign-bottom"><p>Falling Rocks</p></div>
         </div>
         <div class="sign">
-            <div class="sign-top"><img src=".\images\sign\ferry.png"></div>
+            <div class="sign-top"><img src="../../../assets/RoadSign/ferry.png"></div>
             <div class="sign-bottom"><p>Ferry</p></div>
         </div>
         <div class="sign">
-            <div class="sign-top"><img src=".\images\sign\unguardedrailwaycrossing.png"></div>
+            <div class="sign-top"><img src="../../../assets/RoadSign/unguardedrailwaycrossing.png"></div>
             <div class="sign-bottom"><p>Un-Guarded railway crossing</p></div>
         </div>
                 
         <div class="sign">
-            <div class="sign-top"><img src=".\images\sign\dangerousdip.png"></div>
+            <div class="sign-top"><img src="../../../assets/RoadSign/dangerousdip.png"></div>
             <div class="sign-bottom"><p>Dangerous dip</p></div>
         </div>
         <div class="sign">
-            <div class="sign-top"><img src=".\images\sign\hospital.jpg"></div>
+            <div class="sign-top"><img src="../../../assets/RoadSign/hospital.jpg"></div>
             <div class="sign-bottom"><p>Hospital</p></div>
+        </div> -->
+        <div *ngFor="let s of jsondata">
+            <div class="sign">
+                <div class="sign-top"><img src="../../../assets/RoadSign/{{ s.imgur }}"></div>
+                <div class="sign-bottom"><p>{{ s.imgtxt }}</p></div>
+            </div>
+            
         </div>
     </section>    
     <footer class="page-footer footer">    

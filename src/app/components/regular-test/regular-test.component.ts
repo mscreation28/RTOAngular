@@ -1,4 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
 	selector: 'app-regular-test',
@@ -14,7 +15,7 @@ export class RegularTestComponent implements OnInit {
 	sec: number = null;	
 	public dummy=[ { 'id':1, 'time':35	} ]
 	
-	constructor() { 
+	constructor(private router : Router) { 
 		this.psec="45"
 		this.tsec="100"		
 	}
@@ -29,13 +30,12 @@ export class RegularTestComponent implements OnInit {
 		}
 		this.psec = (this.sec<10?("0"+this.sec):(this.sec+""));
 		this.tsec=(100*this.sec)/46+"";
-		if(this.sec==0) {
-			document.getElementById('this.sec').innerHTML = "00";        
+		console.log(this.sec);
+		if(this.sec==0) {			
+			console.log(this.sec+"Hello End");
 			clearInterval(this.interval);  
-			document.getElementById('submitbtn').click();
-		}
-		var cir = document.getElementById('circle');
-						
+			this.router.navigate(['/result']);
+		}						
 	}
 	start()
 	{

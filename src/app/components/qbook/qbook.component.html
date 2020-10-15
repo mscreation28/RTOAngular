@@ -11,103 +11,65 @@
         </div>        
     </header>
 
-<section class="container">
+    <section class="container">
     
-        <div class="language"><a href="#">ગુજરાતી માં ફેરવો..</a></div>
-        
+        <div *ngIf="!isgujarati">
+            <div class="language"><a role="button" (click)="changetoguj()">ગુજરાતી માં ફેરવો..</a></div>
+        </div>
+        <div *ngIf="isgujarati">
+            <div class="language"><a role="button" (click)="changetoeng()">Change to English..</a></div>
+        </div>
         <div class="myque">	
-            <div class="question">
-                <p>1. While driving at nights on city roads, keep your head-lights on a </p>                
-                <div class="option">
-                    <INPUT TYPE="RADIO" VALUE="A" NAME="aa" checked>
-                    <p>Low Beam</p>
-                </div>
-                <div class="option">
-                    <INPUT TYPE="RADIO" VALUE="B" NAME="aa" disabled> 
-                    <p>High Beam</p>
-                </div>
-                <div class="option">
-                    <INPUT TYPE="RADIO" VALUE="C" NAME="aa" disabled> 
-                    <p>Switch of all lighs</p>
-                </div>
-            </div>
-    
-            <div class="question">
-                <p>2. What does following sign represent?</p><br>
-                <img src=".\images\queimg\bullcardprohibited.jpg">
-                <div class="option">
-                    <INPUT TYPE="RADIO" VALUE="A" NAME="cc" checked> 
-                    <p>Bullock cart prohibited.</p>
-                </div>
-                <div class="option">
-                    <INPUT TYPE="RADIO" VALUE="B" NAME="cc" disabled>
-                    <p>Cycle prohibited.</p>
-                </div>
-                <div class="option">
-                    <INPUT TYPE="RADIO" VALUE="C" NAME="cc" disabled> 
-                    <p>All vehicles prohibited.</p>
-                </div>
-            </div>
-
-            <div class="question">
-                <p>3. Red Traffic Light Indicates</p>                
-                <div class="option">
-                    <INPUT TYPE="RADIO" VALUE="A" NAME="bb" disabled> 
-                    <p>Vehicles can proceed with cautions</p>
-                </div>
-                <div class="option">
-                    <INPUT TYPE="RADIO" VALUE="B" NAME="bb" checked>
-                    <p>Stop the vehicles</p>
-                </div>
-                <div class="option">
-                    <INPUT TYPE="RADIO" VALUE="C" NAME="bb" disabled> 
-                    <p>Slow down</p>
+            <div *ngFor="let q of jsondata | paginate: { itemsPerPage: 5, currentPage: page }">
+                <div class="question">                
+                    <p>{{ q.qid }} . {{ q.que }}</p>
+                    <div *ngIf="q.hasImg">
+                        <div *ngIf="!isgujarati">
+                            <img src="../../../assets/QueImg/{{ q.imgurl }}">
+                        </div>
+                        <div *ngIf="isgujarati">
+                            <img src="../../../assets/QueImgGuj/{{ q.imgurl }}">
+                        </div>
+                        
+                    </div>
+                    <div class="option" *ngIf="q.ans == 1">
+                        <input type="radio" checked>
+                        <p>{{ q.op1 }}</p>
+                    </div>
+                    <div class="option" *ngIf="q.ans != 1">
+                        <input type="radio" disabled>
+                        <p>{{ q.op1 }}</p>
+                    </div>
+                    <div class="option" *ngIf="q.ans == 2">
+                        <input type="radio" checked>
+                        <p>{{ q.op2 }}</p>
+                    </div>
+                    <div class="option" *ngIf="q.ans != 2">
+                        <input type="radio" disabled>
+                        <p>{{ q.op2 }}</p>
+                    </div>
+                    <div class="option" *ngIf="q.ans == 0">
+                        <input type="radio" checked>
+                        <p>{{ q.op3 }}</p>
+                    </div>
+                    <div class="option" *ngIf="q.ans != 0">
+                        <input type="radio" disabled>
+                        <p>{{ q.op3 }}</p>
+                    </div>                
                 </div>
             </div>
-    
-            <div class="question">
-                <p>4. While you are driving on gradient road you should</p>                
-                <div class="option">
-                    <INPUT TYPE="RADIO" VALUE="A" NAME="dd" disabled> 
-                    <p>Give precendence to the vehicles coming down hill</p>
-                </div>
-                <div class="option">
-                    <INPUT TYPE="RADIO" VALUE="B" NAME="dd" checked>
-                    <p>Give precendence to the vehicles going up hill</p>
-                </div>
-                <div class="option">
-                    <INPUT TYPE="RADIO" VALUE="C" NAME="dd" disabled> 
-                    <p>Give precendence to the vehicles carrying heavy loads</p>
-                </div>
-            </div>        
-    
-            <div class="question">
-                <p>5. On a road designed as one way</p>                
-                <div class="option">
-                    <INPUT TYPE="RADIO" VALUE="A" NAME="ee" disabled> 
-                    <p>Parking is prohibited</p>
-                </div>
-                <div class="option">
-                    <INPUT TYPE="RADIO" VALUE="B" NAME="ee" disabled>
-                    <p>Overtaking is prohibited</p>
-                </div>
-                <div class="option">
-                    <INPUT TYPE="RADIO" VALUE="C" NAME="ee" checked> 
-                    <p>Should not drive in reverse gear</p>
-                </div>
-            </div>
+            <pagination-controls (pageChange)="page = $event"></pagination-controls>
         </div>
         <hr>
         <div class="content-bottom row">                
-            <div class="skip-que col col-md-12">
-                <form action="#">
-                    <p>GO TO Question : </p><input type="text"/> 
-                    <input type="submit" value="Skip"/>
-                </form>
+            <div class="skip-que col col-md-12">                            
+                <p>GO TO Question : </p>
+                <input type="number" [(ngModel)]='pnum'/> 
+                <button (click)="skiptopage()">Skip</button>                
             </div>
         </div>
-    
-</section>
+        
+    </section>
 
 <footer class="footer">
     <h5>coyright &copy 2020,MS-creation</h5>

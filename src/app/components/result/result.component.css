@@ -1,0 +1,73 @@
+.wrapper{
+    margin: 0;
+    padding: 0;
+    font-family: Arial, Helvetica, sans-serif;
+    letter-spacing: 0.75px;
+    background-color: #c0ffb3;
+    height: 100%;
+    overflow: scroll;
+    overflow-x: hidden;
+}
+.header{
+    background-color: rgba(255, 255, 255, 0.9);
+}
+.header .btn-fill{
+    background-color: #52de97;
+    color: rgba(0, 70, 0, 1);
+}
+.header .btn-fill:hover{
+    background-color: rgba(255, 255, 255, 0.9);
+    border: 2px solid rgba(0, 70, 0, 1);
+    color: rgba(0, 70, 0, 1);
+}
+.instruction{
+    line-height: 27px;
+}
+.instruction h2{
+    padding-bottom: 5px;
+}
+.correct{
+    color: green;
+}
+.wrong{
+    color: red;
+}
+.que-head{
+    width: 100%;
+}
+.que-head h1{
+    margin-top: 25px;
+    font-size: 24px;
+}
+.que h3{
+    font-size: 24px;
+    font-weight: lighter;
+    padding-top: 20px;
+}
+.que-main-head{
+    min-height: 40px;
+}
+.option:hover{
+    border: 0.5px solid lightgray;
+    pointer-events: none;
+}
+.que .wrong{
+    border: 2px solid red;
+    /* color: black; */
+}
+.que .correct{
+    border: 2px solid green;
+    /* color: black; */
+}
+footer{
+    margin-top: 20px;
+    position: relative;
+    padding-top: 15px;
+    bottom: 0;
+    background-color: rgb(0, 0, 0, 0.8);
+}
+@media (max-width: 770px){
+    .wrapper{
+        background-color: #c0ffb3;    
+    }
+}

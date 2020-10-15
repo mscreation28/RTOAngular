@@ -5,6 +5,7 @@ import { CustomTestComponent } from './components/custom-test/custom-test.compon
 import { HomeComponent } from './components/home/home.component';
 import { QBookComponent } from './components/qbook/qbook.component';
 import { RegularTestComponent } from './components/regular-test/regular-test.component';
+import { ResultComponent } from './components/result/result.component';
 import { RoadSignComponent } from './components/road-sign/road-sign.component';
 
 const routes: Routes = [
@@ -27,6 +28,10 @@ const routes: Routes = [
 	{
 		path: 'customtest',
 		component: CustomTestComponent
+	},
+	{
+		path: 'result',
+		component: ResultComponent
 	},
 	{
 		path: '',
