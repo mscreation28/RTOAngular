@@ -89,6 +89,12 @@ input[type='radio']:after {
 input[type='radio']:checked:after{
     background-color: green;
 }
+.wrong input[type='radio']:checked:after{
+    background-color: red;
+}
+.correct input[type='radio']:checked:after{
+    background-color: green;
+}
 
 .option{
     margin: 15px 0px;

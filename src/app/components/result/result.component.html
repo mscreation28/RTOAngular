@@ -14,8 +14,8 @@
     <!-- <div class="wrapper"> -->
         <div class="instruction">
             <h3>You Have Successfully Completed Test.</h3>
-            <h5 class="correct">Correct Answer : 12</h5>
-            <h5 class="wrong">Wrong Answer : 3</h5> 
+            <h5 class="correct">Correct Answer : {{ truecnt }}</h5>
+            <h5 class="wrong">Wrong Answer : {{ falsecnt }}</h5> 
         </div>
         <div class="question">
             <div class="que-main-head">                    
@@ -23,8 +23,8 @@
                     <h1>Total Question 3:</h1>                          
                 </div>
             </div>
-            <form action="submitted.html">
-                <div class="que">
+            <!-- <form action="submitted.html"> -->
+                <!-- <div class="que">
                     <h3>Q. While driving at nights on city roads, keep your head-lights on a</h3>
                     <div class="option correct">
                         <input TYPE="RADIO" VALUE="A" NAME="aa">
@@ -55,9 +55,9 @@
                         <input TYPE="RADIO" VALUE="C" NAME="cc" > 
                         <p>All vehicles prohibited.</p>
                     </div>
-                </div>
+                </div>  -->
                 
-                <div class="que">
+                <!-- <div class="que">
                     <h3>Q. Red Traffic Light Indicates</h3>                
                     <div class="option">
                         <input TYPE="RADIO" VALUE="A" NAME="bb" > 
@@ -71,8 +71,105 @@
                         <input TYPE="RADIO" VALUE="C" NAME="bb" > 
                         <p>Slow down</p>
                     </div>
-                </div>                    
-            </form>
+                </div>                      -->
+            <!-- </form> -->
+            <div *ngIf="fetchedSelection?.length > 0 && fetchedQue?.length > 0; else  quefail">
+                <div *ngFor="let sq of fetchedQue; let index = index">
+                    <div class="que">
+                        <h3>{{ index+1 }}. {{ sq.que }}</h3>
+                        <div *ngIf="sq.hasImg">                            
+                            <img src="../../../assets/QueImg/{{ sq.imgurl }}">                            
+                        </div> 
+                        <!-- {{ sq.ans }} -->
+                        <div *ngIf="sq.ans == 1">                            
+                            <div class="option correct">                                                                
+                                <div *ngIf="sq.op1 == fetchedSelection[index].option;">
+                                    <input type="radio" value="{{ option }}" name="{{ index }}" checked/>                                
+                                    <p>{{ sq.op1 }}</p>
+                                </div>
+                                <div *ngIf="sq.op1 != fetchedSelection[index].option;">
+                                    <input type="radio" value="{{ option }}" name="{{ index }}" disabled/>                                
+                                    <p>{{ sq.op1 }}</p>
+                                </div>                                
+                            </div>                            
+                        </div>
+                        <div *ngIf="sq.ans != 1">
+                            <div *ngIf="sq.op1 == fetchedSelection[index].option;">                                                           
+                                <div class="option wrong">                                
+                                     <input type="radio" value="{{ option }}" name="{{ index }}" checked/> 
+                                    <p>{{ sq.op1 }}</p>                 
+                                </div>                                
+                            </div>
+                            <div *ngIf="sq.op1 != fetchedSelection[index].option;">                                                           
+                                <div class="option">                                
+                                     <input type="radio" value="{{ option }}" name="{{ index }}" disabled/> 
+                                    <p>{{ sq.op1 }}</p>                 
+                                </div>                                
+                            </div>                            
+                        </div>
+
+                        <div *ngIf="sq.ans == 2">                            
+                            <div class="option correct">                                                                
+                                <div *ngIf="sq.op2 == fetchedSelection[index].option;">
+                                    <input type="radio" value="{{ option }}" name="{{ index }}" checked/>                                
+                                    <p>{{ sq.op2 }}</p>
+                                </div>
+                                <div *ngIf="sq.op2 != fetchedSelection[index].option;">
+                                    <input type="radio" value="{{ option }}" name="{{ index }}" disabled/>                                
+                                    <p>{{ sq.op2 }}</p>
+                                </div>                                
+                            </div>                            
+                        </div>
+                        <div *ngIf="sq.ans != 2">
+                            <div *ngIf="sq.op2 == fetchedSelection[index].option;">                                                           
+                                <div class="option wrong">                                
+                                     <input type="radio" value="{{ option }}" name="{{ index }}" checked/> 
+                                    <p>{{ sq.op2 }}</p>                 
+                                </div>                                
+                            </div>
+                            <div *ngIf="sq.op2 != fetchedSelection[index].option;">                                                           
+                                <div class="option">                                
+                                     <input type="radio" value="{{ option }}" name="{{ index }}" disabled/> 
+                                    <p>{{ sq.op2 }}</p>                 
+                                </div>                                
+                            </div>                            
+                        </div>
+
+                        <div *ngIf="sq.ans == 0">                            
+                            <div class="option correct">                                                                
+                                <div *ngIf="sq.op3 == fetchedSelection[index].option;">
+                                    <input type="radio" value="{{ option }}" name="{{ index }}" checked/>                                
+                                    <p>{{ sq.op3 }}</p>
+                                </div>
+                                <div *ngIf="sq.op3 != fetchedSelection[index].option;">
+                                    <input type="radio" value="{{ option }}" name="{{ index }}" disabled/>                                
+                                    <p>{{ sq.op3 }}</p>
+                                </div>                                
+                            </div>                            
+                        </div>
+                        <div *ngIf="sq.ans != 0">
+                            <div *ngIf="sq.op3 == fetchedSelection[index].option;">
+                                <div class="option wrong">                                
+                                     <input type="radio" value="{{ option }}" name="{{ index }}" checked/> 
+                                    <p>{{ sq.op3 }}</p>                 
+                                </div>                                
+                            </div>
+                            <div *ngIf="sq.op3 != fetchedSelection[index].option;">                                                           
+                                <div class="option">                                
+                                     <input type="radio" value="{{ option }}" name="{{ index }}" disabled/> 
+                                    <p>{{ sq.op3 }}</p>                 
+                                </div>                                
+                            </div>                            
+                        </div>
+                                                                
+                        <!-- {{ index }} -->
+                    </div>
+                </div>
+            </div>
+            <ng-template #quefail>
+                <p>If Question is not available Restart it.</p>
+                <button type="submit" id="submitbtn" class="btn-fill">Restart</button>
+            </ng-template> 
         </div>
     <!-- </div> -->
 </section>

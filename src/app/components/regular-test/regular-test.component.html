@@ -1,3 +1,4 @@
+
 <div class="wrapper">
     <header class="header navbar navbar-expand-md row">
         <h2 class="col col-sm-7">RTO Exam Preparation</h2>
@@ -31,35 +32,67 @@
                     </div>
                     
                     <div class="que-head col col-sm-10 col-xl-10 col-12">
-                        <h1>Question 1/15:</h1>
-                        <h3>Q. While driving at nights on city roads, keep your head-lights on a</h3>
+                        <div *ngIf="ques?.length > 0; else  quefail">
+                            <h1>Question {{ qnpr+1 }}/15:</h1>
+                            <h3>{{ ques[qnpr].que }}</h3>
+                        </div>
+                        <div *ngIf="ques[qnpr].hasImg">                
+                            <img src="../../../assets/QueImg/{{ ques[qnpr].imgurl }}">                            
+                        </div>
                     </div>
                 </div>
                 <div class="option-area">
-                    <form action="submitted.html">
+                    
+                        <div *ngIf="ques?.length > 0; else  quefail">                            
+                            <div [(ngModel)]="selected">
+                                
+                                    <div *ngFor="let option of [ques[qnpr].op1,ques[qnpr].op2,ques[qnpr].op3]">
+                                        <div class="option">
+                                            <!-- <input id="{{i}}" type="checkbox" [(ngModel)]="i.Selected" (change)="onSelect(ques[qnpr], i);" /> -->
+                                            <input type="radio" value="{{ option }}" name="oop" (change)="onSelect(ques[qnpr],$event)">
+                                            <p>{{ option }}</p>
+                                        </div>                                        
+                                    </div>                                                                 
+                                <!-- <div class="option" [value]="1">
+                                    <input id="{{option.Id}}" type="checkbox" [(ngModel)]="option.Selected" (change)="onSelect(question, option);" />
+                                    <input TYPE="RADIO" VALUE="C" NAME="aa"> 
+                                    <p>{{ ques[qnpr].op1 }}</p>
+                                </div>
+                                <div class="option" [value]="2">
+                                    <input id="{{option.Id}}" type="checkbox" [(ngModel)]="option.Selected" (change)="onSelect(question, option);" />
+                                    <input TYPE="RADIO" VALUE="C" NAME="aa"> 
+                                    <p>{{ ques[qnpr].op2 }}</p>
+                                </div>
+                                <div class="option" [value]="3">
+                                    <input TYPE="RADIO" VALUE="C" NAME="aa"> 
+                                    <input id="{{option.Id}}" type="checkbox" [(ngModel)]="option.Selected" (change)="onSelect(question, option);" />
+                                    <p>{{ ques[qnpr].op3 }}</p>
+                                </div> -->
+                                <div *ngIf="qnpr!=14">
+                                    <button type="submit" id="submitbtn" class="btn-fill" (click)="AnswerQue(ques[qnpr].qid)">Next</button>            
+                                </div>
+                                <div *ngIf="qnpr==14">
+                                    <button type="submit" id="submitbtn" class="btn-fill" (click)="AnswerQue(ques[qnpr].qid)">Submit</button>            
+                                </div>        
+                            </div>
+                                                        
+                        </div>
                         
-                            <div class="option">
-                                <input TYPE="RADIO" VALUE="A" NAME="aa">
-                                <p>Low Beam</p>
-                            </div>
-                            <div class="option">
-                                <input TYPE="RADIO" VALUE="B" NAME="aa"> 
-                                <p>High Beam</p>
-                            </div>
-                            <div class="option">
-                                <input TYPE="RADIO" VALUE="C" NAME="aa"> 
-                                <p>Switch of all lighs</p>
-                            </div>
-                                            
-
-                        <input type="submit" value="Next" id="submitbtn" class="btn-fill"/>
-                    </form>
+                        <ng-template #quefail>
+                            <p>If Question is not available Restart it.</p>
+                            <button type="submit" id="submitbtn" class="btn-fill" (click)="Restartonfail()">Restart</button>
+                        </ng-template> 
+                        
+                        <!-- <div *ngFor="let option of [ques[qnpr].op1,ques[qnpr].op2,ques[qnpr].op3]">
+                            <p>{{ option }}</p>
+                        </div> -->
+                        
                 </div>
             </div>
-        <!-- </div>         -->
-        <!-- <div class="rside-wrapper">
-            <p></p>
-        </div>   -->
+        
+            <!-- <div *ngIf="ques">                
+                <p>{{ ques[qnpr].ans }}</p>                
+            </div> -->
     </section>
     <footer class="footer">    
         <h5>coyright &copy 2020,MS-creation</h5>
