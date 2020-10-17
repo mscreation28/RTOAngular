@@ -44,7 +44,7 @@
                 <div class="option-area">
                     
                         <div *ngIf="ques?.length > 0; else  quefail">                            
-                            <div [(ngModel)]="selected">
+                            <div [(ngModel)]="selected" name="option" ngDefaultControl>
                                 
                                     <div *ngFor="let option of [ques[qnpr].op1,ques[qnpr].op2,ques[qnpr].op3]">
                                         <div class="option">
@@ -69,10 +69,10 @@
                                     <p>{{ ques[qnpr].op3 }}</p>
                                 </div> -->
                                 <div *ngIf="qnpr!=14">
-                                    <button type="submit" id="submitbtn" class="btn-fill" (click)="AnswerQue(ques[qnpr].qid)">Next</button>            
+                                    <button type="submit" id="submitbtn" class="btn-fill" (click)="AnswerQue()">Next</button>            
                                 </div>
                                 <div *ngIf="qnpr==14">
-                                    <button type="submit" id="submitbtn" class="btn-fill" (click)="AnswerQue(ques[qnpr].qid)">Submit</button>            
+                                    <button type="submit" id="submitbtn" class="btn-fill" (click)="AnswerQue()">Submit</button>            
                                 </div>        
                             </div>
                                                         

@@ -69,7 +69,7 @@ export class RegularTestComponent implements OnInit {
 		if(this.sec==0) {			
 			console.log(this.sec+"Hello End");
 			// this.ngOnInit();			
-			this.AnswerQue(this.ques[this.qnpr].qid);
+			this.AnswerQue();
 		}						
 	}
 	start()
@@ -77,9 +77,9 @@ export class RegularTestComponent implements OnInit {
 		this.interval = setInterval(() => { this.timer() }, 1000);
 	}
 	
-	AnswerQue(qid)
+	AnswerQue()
 	{	
-		console.log(qid,this.selectedOption);		
+		// console.log(qid,this.selectedOption);		
 		if((this.ques[this.qnpr].ans==1 && this.selectedOption==this.ques[this.qnpr].op1) || (this.ques[this.qnpr].ans==2 && this.selectedOption==this.ques[this.qnpr].op2) || (this.ques[this.qnpr].ans==0 && this.selectedOption==this.ques[this.qnpr].op3))
 			this.selectionList[this.qnpr]={'option': this.selectedOption, 'correct':true};
 		else
