@@ -27,8 +27,8 @@ export class RegularTestComponent implements OnInit {
 		this.tsec="100"		
 	}
 	ngOnInit(): void {
-		if(parseInt(localStorage.getItem("seconds"))>0 && localStorage.getItem("ques") != "") {
-			console.log("eglpe");
+		if(parseInt(localStorage.getItem("seconds"))>0 && localStorage.getItem("ques").length>0 && localStorage.getItem("selectionList").length>0){
+			console.log("eglpe"+localStorage.getItem("ques"));
 			this.sec = parseInt(localStorage.getItem("seconds"));
 			this.qnpr = parseInt(localStorage.getItem("qnpr"));			
 			this.ques = JSON.parse(localStorage.getItem("ques"));

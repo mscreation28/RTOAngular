@@ -97,7 +97,8 @@ body{
     .wrapper{
         overflow: unset;
         background-color: #c0ffb3;
-        overflow-x: hidden;       
+        overflow-x: hidden;
+        overflow-y: hidden;              
     }
     .container1{
         margin: 0px;
