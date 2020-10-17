@@ -19,26 +19,27 @@ export class CustomTestComponent implements OnInit {
 	totsec1: number = null;
 	totsecfix: number = null;
 	public ques: any=[];
-
 	public selectionList:any=[];
 	selectedOption:any ="";
-	questioncnt:number =15;
+	questioncnt:number =10;
+	varcnt:number = this.questioncnt;
 	public dummy=[ { 'id':1, 'time':0	} ]
 	
 	constructor(private router : Router, private services: DataserviceService) { 				
 	}
 	ngOnInit(): void {				
 		this.settime(this.questioncnt);		
-		this.services.getRandomQue().subscribe( res => {
+		this.services.getRandomNQue(this.questioncnt).subscribe( res => {
 			this.ques=res;
 			console.log(res);
 			this.services.questions=res;
 			console.log(this.services.questions);			
-			localStorage.setItem("quespassed","");
-			localStorage.setItem("selectionList","");			
+			localStorage.removeItem("quespassed");
+			localStorage.removeItem("selectionList");			
 		})			
 		console.log("good start");		
 		this.start();
+		this.selectionList=[];
 		for(var i=0;i<this.questioncnt;i++)
 		{
 			this.selectionList[i]={'option': "", 'correct':false};
@@ -92,7 +93,7 @@ export class CustomTestComponent implements OnInit {
 		this.services.selections = JSON.stringify(this.selectionList);
 		localStorage.setItem("selectionList",JSON.stringify(this.selectionList));
 		localStorage.setItem("quespassed",JSON.stringify(this.ques));
-		clearInterval(this.interval);				
+		clearInterval(this.interval);			
 		this.router.navigate(['/result']);
 	}
 	onSelect(quen :number, event:any){
@@ -106,6 +107,14 @@ export class CustomTestComponent implements OnInit {
 	}
 	Restartonfail()
 	{
-		console.log("Chalo ku6 dekhte hai..!")
+		console.log("Chalo ku6 dekhte hai..!");
+		this.ngOnInit();
+	}
+	changeQuecount(){
+		if(this.varcnt>200)
+			this.varcnt=200;
+		this.questioncnt=this.varcnt;
+		console.log(this.questioncnt);
+		this.ngOnInit();
 	}
 }

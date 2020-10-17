@@ -16,6 +16,10 @@
             <h3>Instruction:</h3>
             <p>You have selected {{ questioncnt }} Question.</p>
             <p>You have 45sec. For each Question.</p>
+            <div class="chagequearea">
+                <p cl>Change Questions Count : </p><input type="number" [(ngModel)]='varcnt'/> 
+                <button (click)="changeQuecount()">Change</button>
+            </div>                
         </div>
         <div class="question">
             <div class="que-main-head row">

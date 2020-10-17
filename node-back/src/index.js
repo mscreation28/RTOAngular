@@ -168,7 +168,19 @@ function mongoConnected(){
 		})
 	})
 
-
+	app.get("/getrandomNquestion",(req ,response) => {
+		ques.aggregate([{$sample: {size: parseInt(req.query.qcnt)}}], function(err, questions) {
+			console.log(req.query.qcnt);
+			if(err) {
+				response.send(err);
+			}
+			else {
+				console.log("All Random " + req.query.qcnt + "returned");
+				response.status(200);
+				response.send(questions);
+			}
+		})
+	})
 
 }
 

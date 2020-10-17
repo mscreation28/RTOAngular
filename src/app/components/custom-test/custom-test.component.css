@@ -33,6 +33,21 @@
 .que img{
     margin-left: 20px;
 }
+.chagequearea p{
+    display: inline;
+}
+.chagequearea input[type="number"], .chagequearea button{
+    width: 50px;
+    border: solid 1px #2c7873;
+    margin-right: 10px;
+    border-radius: 5px;
+}
+.chagequearea button{
+    width: 70px;
+    background-color: #2c7873;
+    color: white;
+}
+
 footer{
     margin-top: 20px;
     position: relative;
