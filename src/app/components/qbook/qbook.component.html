@@ -20,9 +20,9 @@
             <div class="language"><a role="button" (click)="changetoeng()">Change to English..</a></div>
         </div>
         <div class="myque">	
-            <div *ngFor="let q of jsondata | paginate: { itemsPerPage: 5, currentPage: page }">
+            <div *ngFor="let q of jsondata | paginate: { itemsPerPage: 5, currentPage: page }; let index = index">
                 <div class="question">                
-                    <p>{{ q.qid }} . {{ q.que }}</p>
+                    <p>{{ ((page-1)*5) + index +1 }} . {{ q.que }}</p>
                     <div *ngIf="q.hasImg">
                         <div *ngIf="!isgujarati">
                             <img src="../../../assets/QueImg/{{ q.imgurl }}">
