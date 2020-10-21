@@ -33,7 +33,7 @@ export class RegularTestComponent implements OnInit {
 			this.qnpr = parseInt(localStorage.getItem("qnpr"));			
 			this.ques = JSON.parse(localStorage.getItem("ques"));
 			this.selectionList = JSON.parse(localStorage.getItem("selectionList"));
-			this.timer();
+			this.timer();			
 			this.start();
 						
 		}
@@ -50,6 +50,7 @@ export class RegularTestComponent implements OnInit {
 				console.log(JSON.parse(localStorage.getItem("ques")));
 			})			
 			console.log("good start");
+			clearInterval(this.interval);
 			this.start();
 			this.qnpr=0;
 		}

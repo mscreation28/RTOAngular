@@ -182,6 +182,40 @@ function mongoConnected(){
 		})
 	})
 
+	var userSchema = new mongoose.Schema({
+        name: String,        
+        email: String,
+        password: String,        
+	}, { collection: 'User' });
+	var user = mongoose.model("user", userSchema);
+
+	app.get("/loginusers", (req, res) => {
+		user.find( function(err, users) {
+			if (err) {				
+				res.send(err);
+			}
+			else {
+				console.log("All users returned");
+				res.status(200);
+				res.send(users);
+			}
+		});
+	});
+	
+	app.post("/register", (req, res) => {
+		var newUser = new user(req.body);		
+		newUser.save( function(err) {
+			if (err) {
+				res.status(400);
+				res.send({ "msg": "Insert Fail"});
+			}
+			else {	
+				console.log("User added...Hurrey!");
+
+			}
+        });        
+    });
+
 }
 
 

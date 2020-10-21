@@ -12,7 +12,10 @@ import { RegularTestComponent } from './components/regular-test/regular-test.com
 import { CustomTestComponent } from './components/custom-test/custom-test.component';
 import { ResultComponent } from './components/result/result.component';
 import { NgxPaginationModule } from 'ngx-pagination';
-import { FormsModule } from '@angular/forms';
+import { FormsModule} from '@angular/forms';
+import { ReactiveFormsModule } from '@angular/forms';
+import { SignupComponent } from './components/signup/signup.component';
+import { LoginComponent } from './components/login/login.component';
 
 @NgModule({
   declarations: [
@@ -22,7 +25,9 @@ import { FormsModule } from '@angular/forms';
     RoadSignComponent,
     RegularTestComponent,
     CustomTestComponent,
-    ResultComponent
+    ResultComponent,
+    SignupComponent,
+    LoginComponent
   ],
   imports: [
     BrowserModule,
@@ -41,7 +46,8 @@ import { FormsModule } from '@angular/forms';
     }),
     HttpClientModule,
     NgxPaginationModule,
-    FormsModule
+    FormsModule,
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

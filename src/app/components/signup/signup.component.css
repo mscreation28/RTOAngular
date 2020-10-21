@@ -1,0 +1,13 @@
+.container{
+    float: right;
+}
+.side-panal{
+    float: left;
+    background: rgb(255,186,90);
+    background: linear-gradient(240deg, rgba(255,186,90,1) 0%, rgba(192,255,179,1) 30%, rgba(82,222,151,1) 60%, rgba(44,120,115,1) 100%);
+    /* background: linear-gradient(60deg,rgba(113,14,209,1) 20%,rgba(24,135,227,1) 100%); */
+}
+.form-data1 input[type="submit"]{
+    /* margin-top: -20px;     */
+    margin-bottom: 20px;
+}

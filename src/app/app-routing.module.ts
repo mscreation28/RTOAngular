@@ -3,10 +3,12 @@ import { Routes, RouterModule } from '@angular/router';
 import { AppComponent } from './app.component';
 import { CustomTestComponent } from './components/custom-test/custom-test.component';
 import { HomeComponent } from './components/home/home.component';
+import { LoginComponent } from './components/login/login.component';
 import { QBookComponent } from './components/qbook/qbook.component';
 import { RegularTestComponent } from './components/regular-test/regular-test.component';
 import { ResultComponent } from './components/result/result.component';
 import { RoadSignComponent } from './components/road-sign/road-sign.component';
+import { SignupComponent } from './components/signup/signup.component';
 
 const routes: Routes = [
 	{
@@ -32,6 +34,18 @@ const routes: Routes = [
 	{
 		path: 'result',
 		component: ResultComponent
+	},
+	{
+		path: 'login',
+		component: LoginComponent
+	},	
+	{
+		path: 'signup',
+		component: SignupComponent
+	},
+	{
+		path: 'home',
+		component: HomeComponent
 	},
 	{
 		path: '',

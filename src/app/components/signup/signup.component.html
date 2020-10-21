@@ -1,0 +1,41 @@
+<div class="wrapper">
+    <div class="container">
+        <div class="form-data1">
+            <form class="form-horizontal" method="GET" name="signupform" [formGroup]="form" (ngSubmit)="onSubmit()">
+                
+                
+                <p>name</p>
+                <input type="text" id="name" class="form-control" placeholder="Enter Username Here" formControlName="name" (blur)="UnameValidate()"> 
+                <div class="alert"><p>{{ uname_alert }}</p></div>
+
+                <!-- <div class="alert"><p id="uname_alert"></p></div> -->
+                <p>email</p>
+                <input type="text" id="email" class="form-control" placeholder="Enter Your Email Here" formControlName="email" (blur)="EmailValidate()"/>
+                <div class="alert"><p>{{ email_alert }}</p></div>
+
+                <p>password</p>
+                <input type="password" id="password" class="form-control" placeholder="Enter Password" formControlName="password" (blur)="ValidationPassword()"/>
+                <div class="alert"><p>{{ password_alert }}</p></div>
+
+                <p>re-password</p>
+                <input type="password" id="repassword" class="form-control" placeholder="Re-Enter Password" formControlName="repassword" (blur)="ValidationRPassword()"/>
+                <div class="alert"><p>{{ rpassword_alert }}</p></div>
+                <br>
+                <input type="submit" name="submit" class="btn-fill" value="SIGNUP">
+                <br>Already have account??
+                <a routerLink="/login" routerLinkActive="active">Login Account</a>
+            </form>
+        </div>
+    </div>
+    <div class="center-btn-area">
+        <a routerLink="/login" routerLinkActive="active"><button class="center-btn" ><p>&gt;</p></button></a>
+    </div>
+    <div class="side-panal" >
+        <div class="side-panal-data">
+            <h1 >welcome to</h1><br>
+            <h3>RTO LLR Exam Preparation</h3>
+            <hr><br><br>
+            <p>Signup to Access Features</p>
+        </div>
+    </div>
+</div>

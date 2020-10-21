@@ -10,7 +10,7 @@ export class HomeComponent implements OnInit {
 
   constructor(private router:Router) { }
 
-  ngOnInit(): void {3
+  ngOnInit(): void {
   }
   
 	qbtnClick(){
@@ -24,5 +24,8 @@ export class HomeComponent implements OnInit {
   }
   ctbtnClick(){
     this.router.navigate(['/customtest']);
+  }
+  ltbtnClick(){
+    this.router.navigate(['/login']);
   }
 }

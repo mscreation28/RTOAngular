@@ -37,7 +37,8 @@ export class CustomTestComponent implements OnInit {
 			localStorage.removeItem("quespassed");
 			localStorage.removeItem("selectionList");			
 		})			
-		console.log("good start");		
+		console.log("good start");
+		clearInterval(this.interval);		
 		this.start();
 		this.selectionList=[];
 		for(var i=0;i<this.questioncnt;i++)

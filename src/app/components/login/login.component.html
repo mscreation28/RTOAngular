@@ -1,0 +1,35 @@
+<div class="wrapper">
+    <div class="container">
+        <div class="form-data1">
+            <form [formGroup]="form" (ngSubmit)="onSubmit()">
+                <h1 style="font-variant : small-caps; font-weight: 600;">login</h1>                
+
+                <p>email</p>
+                <input type="text" id="email" class="form-control" placeholder="Enter Email Here" formControlName="email" />  
+                <div class="alert"><p>{{ temp }}</p></div>
+                <p>password</p>
+                <input type="password" id="password" class="form-control" placeholder="Enter Password" formControlName="password" />
+                <div class="lalert"><p>{{ alert }}</p></div>                
+                <input type="checkbox" name="remember"> <h6> Remember Me</h6>
+                <br>
+                <input type="submit" class="btn-fill" value="LOGIN">
+                <a href="#" ><button class="btn-border">LOGIN AS GUEST</button></a>
+                <!-- Fo to JavaScript for Guest Login From Here -->                
+                <p><a href="#">Forgot password?</a></p>
+                <br>Don't have account??
+                <a routerLink="/signup" routerLinkActive="active">Create Account</a>            
+            </form>
+        </div>    
+    </div>
+    <div class="center-btn-area">
+        <a routerLink="/signup" routerLinkActive="active" ><button class="center-btn"><p>&lt;</p></button></a>
+    </div>
+    <div class="side-panal" >
+        <div class="side-panal-data">
+            <h1>welcome to</h1><br>
+            <h3>RTO LLR Exam Preparation</h3>
+            <hr><br><br>
+            <p>Login to Access Dashboard</p>
+        </div>
+    </div>
+</div>
