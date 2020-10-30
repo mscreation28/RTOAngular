@@ -41,10 +41,11 @@ export class DataserviceService {
 		return this.http.get('https://rtoexam.herokuapp.com/getrandomNquestion',{params:{qcnt:questioncnt}})
 	}
 	RegisterUser(data:UserDetails): Observable<any> {
-		return this.http.post('http://localhost:3000/register/',JSON.stringify(data),httpOptions);
-		// return this.http.post('https://rtoexam.herokuapp.com/getrandomNquestion',JSON.stringify(data),httpOptions);
+		// return this.http.post('http://localhost:3000/register/',JSON.stringify(data),httpOptions);
+		return this.http.post('https://rtoexam.herokuapp.com/register',JSON.stringify(data),httpOptions);
 	}
 	getLoginData(): Observable<any> {
-		return this.http.get('http://localhost:3000/loginusers')
+		// return this.http.get('http://localhost:3000/loginusers')
+		return this.http.get('https://rtoexam.herokuapp.com/loginusers')
 	}
 }
