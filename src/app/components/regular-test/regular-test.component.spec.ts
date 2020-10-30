@@ -1,4 +1,6 @@
+import { HttpClientModule } from '@angular/common/http';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { RouterTestingModule } from '@angular/router/testing';
 
 import { RegularTestComponent } from './regular-test.component';
 
@@ -8,7 +10,9 @@ describe('RegularTestComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ RegularTestComponent ]
+      declarations: [ RegularTestComponent ],
+      imports: [HttpClientModule,
+        RouterTestingModule.withRoutes([])]
     })
     .compileComponents();
   });
@@ -17,9 +21,12 @@ describe('RegularTestComponent', () => {
     fixture = TestBed.createComponent(RegularTestComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
+    component.ques=[];
+    component.selectedOption=[];
   });
 
-  it('should create', () => {
-    expect(component).toBeTruthy();
-  });
+  // it('should have question list', () => {
+    // expect(component).toBeTruthy();
+    // expect(component.ques).toBeNull();
+  // });
 });
